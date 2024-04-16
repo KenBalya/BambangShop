@@ -93,3 +93,9 @@ This is the place for you to write reflections:
 3. Yes, I've previously delved into Postman before undertaking this task. From what I've seen, Postman's capabilities have been quite beneficial to me as a backend developer, particularly for API testing. Typically, I would employ Postman to validate the backend APIs that I developed (although initially, I utilized Insomnia) prior to their integration with separate frontend applications such as Next.js or Flutter. Similarly, for this job, I find Postman to be extremely effective in emulating interactions between the client and server.
 
 #### Reflection Publisher-3
+
+1. In this tutorial case, the Observer Pattern variation being used is the Push model. This is indicated by the NotificationService::notify function, which actively pushes notification data to the subscribers when an event occurs, such as the creation or deletion of a product. The subscribers are notified of the change with the relevant data being sent to them, rather than them having to request or pull the data from the publisher.
+
+2. Using the Pull model, subscribers would control when to fetch updates, potentially conserving resources if updates are infrequent, but might face delays in receiving new information. Conversely, this approach could increase server load with frequent polling and complicate subscriber logic to manage update checks.
+
+3. If multi-threading is not used in the notification process, notifications would be sent sequentially on a single thread, blocking the execution flow until each notification is processed. This could significantly slow down the response times for the publishing operation, especially if there are many subscribers or if the notification delivery involves time-consuming tasks like network communication.

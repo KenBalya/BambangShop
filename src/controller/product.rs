@@ -45,5 +45,13 @@ pub fn update(id: usize, product_json: Json<Product>) -> Result<Json<Product>> {
         Err(e) => Err(e) // Passes the error through as-is
     }
 }
+#[post("/<id>/publish")]
+pub fn publish(id: usize) -> Result<Json<Product>> {
+    return match ProductService::publish(id) {
+        Ok(f) => Ok(Json::from(f)),
+        Err(e) => Err(e)
+    };
+}
+
 
 

@@ -37,3 +37,13 @@ pub fn delete(id: usize) -> Result<Json<Product>> {
         Err(e) => Err(e)
     };
 }
+
+#[put("/<id>", data = "<product_json>")]
+pub fn update(id: usize, product_json: Json<Product>) -> Result<Json<Product>> {
+    match ProductService::update(id, product_json.into_inner()) {
+        Ok(f) => Ok(Json::from(f)), // Wraps the product in Json
+        Err(e) => Err(e) // Passes the error through as-is
+    }
+}
+
+

@@ -36,4 +36,18 @@ impl ProductRepository {
         }
         return None;
     }
+    pub fn update(id: usize, new_product_data: Product) -> Option<Product> {
+        // Check if the product with the given id exists
+        if let Some(mut product) = PRODUCTS.get_mut(&id) {
+            // Update the product fields with new data
+            product.title = new_product_data.title;
+            product.description = new_product_data.description;
+            product.price = new_product_data.price;
+            product.product_type = new_product_data.product_type.to_uppercase();
+
+            Some(product.clone())
+        } else {
+            None
+        }
+    }
 }

@@ -42,4 +42,19 @@ impl ProductService {
 
         return Ok(Json::from(product));
     }
+    pub fn update(id: usize, new_product_data: Product) -> Result<Json<Product>> {
+        match ProductRepository::update(id, new_product_data) {
+            Some(updated_product) => {
+                Ok(Json(updated_product))
+            },
+            None => {
+                Err(compose_error_response(
+                    Status::NotFound,
+                    String::from("Product not found.")
+                ))
+            }
+        }
+    }
+
+
 }

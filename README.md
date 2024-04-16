@@ -78,6 +78,12 @@ This is the place for you to write reflections:
 
 #### Reflection Publisher-1
 
+1. In Rust, using a trait for Subscriber would provide the flexibility to implement different types of subscribers with varying behaviors, adhering to the Observer pattern's principle of decoupling objects. However, in our case, BambangShop only requires a single type of subscriber with no varying behavior, a single model struct may suffice without the need for a trait.
+
+2. Using a DashMap is necessary for this case because it allows for concurrent and thread-safe access while also ensuring the uniqueness of each id or url by using them as keys, providing efficient O(1) lookups, insertions, and deletions. A Vec does not enforce uniqueness and would require O(n) time complexity to search for items, which is less efficient for these operations.
+
+3. The Singleton pattern ensures that a class has only one instance and provides a global point of access to it; however, it does not inherently guarantee thread safety. DashMap is a thread-safe, concurrent map that implements this principle internally, ensuring safe access from multiple threads without additional synchronization. Therefore, even when implementing a Singleton in Rust, using a thread-safe data structure like DashMap is necessary to maintain thread safety without manual synchronization mechanisms.
+
 #### Reflection Publisher-2
 
 #### Reflection Publisher-3

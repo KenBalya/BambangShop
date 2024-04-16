@@ -86,4 +86,10 @@ This is the place for you to write reflections:
 
 #### Reflection Publisher-2
 
+1. Separating "Service" and "Repository" from a "Model" adheres to the Single Responsibility Principle, one of the SOLID principles of object-oriented design. The "Model" should focus on representing the domain data, the "Repository" handles data storage and retrieval, abstracting the persistence layer, and the "Service" contains business logic, acting as a bridge between the controllers and the repository. This separation facilitates maintainability, testing, and scaling as each layer has a clear responsibility and can be developed and modified independently.
+
+2. If we only use the Model without distinct Service or Repository layers, each model would have to handle its own persistence, business logic, and possibly even presentation logic. This would lead to several issues, such as Models would become bloated with methods for CRUD operations, business rules, validation, and possibly UI logic, making them harder to understand and maintain. Therefore, By keeping models focused on representing domain data, and handling business logic and data access in separate layers, the system becomes more modular, maintainable, and adaptable to change.
+
+3. Yes, I've previously delved into Postman before undertaking this task. From what I've seen, Postman's capabilities have been quite beneficial to me as a backend developer, particularly for API testing. Typically, I would employ Postman to validate the backend APIs that I developed (although initially, I utilized Insomnia) prior to their integration with separate frontend applications such as Next.js or Flutter. Similarly, for this job, I find Postman to be extremely effective in emulating interactions between the client and server.
+
 #### Reflection Publisher-3
